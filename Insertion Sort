@@ -171,4 +171,4 @@ generateRandStringArray(10000) #calling to test 10000 here
 generateRandStringArray(25000) #calling to test 25000 here
 
 
-#Refereences: Intro to Algorithms textbook, Geeks for Geeks
+#References: Intro to Algorithms textbook, Geeks for Geeks
