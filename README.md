@@ -2,6 +2,7 @@
 Insertion Sort, Merge Sort, Implementation of Matplotlib to show space time complexity
 
 Objectives for Insertion Sort Code: 
+NOTE: It does take some time for runtime as values of n till 50,000. If want a quicker runtime comment the increasing values of n when each function is called
 
 1. Given a random array  of size n sort implement insertion sort.
 
