@@ -1,0 +1,174 @@
+#function for question #1 that takes in a random array of size n and sorts using insertion sort
+
+def insertionrandomarray(randArray):
+  for j in range(0,len(randArray)): #starting from zero index going to whole array 
+      key = randArray[j]
+      i = j-1
+      while i>=0 and randArray[i] > key: #if value to the left is higher than value to the right
+          randArray[i+1] = randArray[i] #swap values
+          i = i-1        
+      randArray[i+1] = key  #add one to i because the last check is not there
+  print("Sorted:")
+  print(randArray)
+randarray = [10,17,15,12,253,343,32644,2423,50000]
+insertionrandomarray(randarray)
+
+import random
+import time
+def randomNumberList(n): #create a random list
+  rand_list=[]
+  for i in range(n):
+    rand_list.append(random.randint(0,1001)) #numbers between 0-1000
+  print("Unsorted:")
+  print(rand_list)
+  starttime = time.time()
+  insertionrandomarray(rand_list)
+  endtime = time.time()
+  totaltime = endtime - starttime
+  print("The total time in seconds for ")
+  print(n)
+  print("is")
+  print(totaltime)
+randomNumberList(100) #n=100
+randomNumberList(1000) #n=1000
+randomNumberList(10000) #n=10000
+randomNumberList(25000) #n=25000
+randomNumberList(50000) #n=50000
+
+#time module question #2 as n size is increased 
+#Average and worst case are quadratic bound so we will illustrate that here for insertion sort
+
+# importing the required module
+import matplotlib.pyplot as plt
+
+# x axis values
+x = [100,1000,10000,25000,50000]
+# corresponding y axis values
+y = [0.000925540924072265,0.0612335205078125,6.62560296058654,39.4694280624389,166.467846393585]
+
+# plotting the points
+plt.plot(x, y)
+
+# naming the x axis
+plt.xlabel('Number of elements in Array')
+# naming the y axis
+plt.ylabel('Time in seconds')
+
+# giving a title to my graph
+plt.title('Insertion Sort')
+
+# function to show the plot
+plt.show()
+
+#Reverse Insertion sort question #3
+def insertionreverserandomarray(randArray):
+  for j in range(0,len(randArray)):
+      key = randArray[j]
+      i = j-1
+      while i>=0 and randArray[i] < key: #changed to check if left side is less than the key 
+          randArray[i+1] = randArray[i] #in that case,switch indexes 
+          i = i-1   #update the index
+      randArray[i+1] = key   
+  print("Sorted:") 
+  print(randArray)
+randarray = [15,253,343,32644,2423] #trial to sort this array
+insertionreverserandomarray(randarray)
+
+import random
+import time
+def randomNumberList(n): #create a random list
+  rand_list=[]
+  for i in range(n):
+    rand_list.append(random.randint(0,1001)) #numbers between 0-1000
+  print("Unsorted:")
+  print(rand_list)
+  starttime = time.time()
+  insertionreverserandomarray(rand_list)
+  endtime = time.time()
+  totaltime = endtime - starttime
+  print("The total time in seconds for ")
+  print(n)
+  print("is")
+  print(totaltime)
+randomNumberList(100) #n=100
+randomNumberList(1000) #n=1000
+randomNumberList(10000) #n=10000
+randomNumberList(25000) #n=25000
+randomNumberList(50000) #n=50000
+
+#for reverse insertion sort graph!
+# importing the required module
+import matplotlib.pyplot as plt
+
+# x axis values
+x = [100,1000,10000,25000,50000]
+# corresponding y axis values
+y = [0.00442099571228027, 0.0847899913787841, 5.92214584350585, 42.6458930969238, 178.121641397476]
+
+# plotting the points
+plt.plot(x, y)
+
+# naming the x axis
+plt.xlabel('Number of elements in Array')
+# naming the y axis
+plt.ylabel('Time in seconds')
+
+# giving a title to my graph
+plt.title('Reverse Insertion Sort')
+
+# function to show the plot
+plt.show()
+
+import random
+import string 
+import time
+#generateRandStringArray(2)
+def insertionAlphaNumeric(randArray):
+  for j in range(0,len(randArray)):
+      key = str(randArray[j])
+      i = j-1
+      while i>=0 and str(randArray[i]) > str(key): #changed to greater than 
+          randArray[i+1] = randArray[i] #switch indexes 
+          i = i-1        
+      randArray[i+1] = key    
+  print("Sorted: ")
+  print(randArray)
+
+#Example of random array being sorted here
+randarray = ["aaron", "john cena", "D'Angelo Russell","Lebron James"] #trial to sort this array
+insertionAlphaNumeric(randarray)
+
+#function to create a random string of arrays 
+array = [] #initialize an empty list before declaring function
+def generateRandStringArray(n):
+  array = []
+  for i in range(0,n):
+    randstring = (random.choices(string.printable, k = random.randint(1,10))) #generating random strings length between 1 to 9 
+    res = ''
+    for ele in randstring:
+    # Concatenating random elements
+      res += random.choice(ele)
+    array.insert(i,res) #insert into array
+  print("Unsorted: ")
+  print(array)
+  #insertionAlphaNumeric(array) #insertion sort
+  startTime = time.time()
+  insertionAlphaNumeric(array) #calling to test here
+  endTime = time.time()
+  totalTime = endTime-startTime
+  print("When n equals")
+  print(n)
+  print("it took approximately")
+  print(totalTime)
+  print("in seconds")
+
+generateRandStringArray(100) #testing 100
+
+generateRandStringArray(1000) #calling to test 1000 here
+
+generateRandStringArray(10000) #calling to test 10000 here
+
+generateRandStringArray(25000) #calling to test 25000 here
+
+
+#Refereences: Intro to Algorithms textbook, Geeks for Geeks
