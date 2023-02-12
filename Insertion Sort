@@ -31,9 +31,9 @@ def randomNumberList(n): #create a random list
   print(totaltime)
 randomNumberList(100) #n=100
 randomNumberList(1000) #n=1000
-randomNumberList(10000) #n=10000
-randomNumberList(25000) #n=25000
-randomNumberList(50000) #n=50000
+#randomNumberList(10000) #n=10000
+#randomNumberList(25000) #n=25000
+#randomNumberList(50000) #n=50000
 
 #time module question #2 as n size is increased 
 #Average and worst case are quadratic bound so we will illustrate that here for insertion sort
@@ -92,9 +92,9 @@ def randomNumberList(n): #create a random list
   print(totaltime)
 randomNumberList(100) #n=100
 randomNumberList(1000) #n=1000
-randomNumberList(10000) #n=10000
-randomNumberList(25000) #n=25000
-randomNumberList(50000) #n=50000
+#randomNumberList(10000) #n=10000
+#randomNumberList(25000) #n=25000
+#randomNumberList(50000) #n=50000
 
 #for reverse insertion sort graph!
 # importing the required module
@@ -166,9 +166,9 @@ generateRandStringArray(100) #testing 100
 
 generateRandStringArray(1000) #calling to test 1000 here
 
-generateRandStringArray(10000) #calling to test 10000 here
+#generateRandStringArray(10000) #calling to test 10000 here
 
-generateRandStringArray(25000) #calling to test 25000 here
+#generateRandStringArray(25000) #calling to test 25000 here
 
 
 #References: Intro to Algorithms textbook, Geeks for Geeks
