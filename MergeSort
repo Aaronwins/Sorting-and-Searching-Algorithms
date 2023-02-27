@@ -1,1 +1,257 @@
+def mergeSort(arr): 
+  if len(arr) > 1: 
+    left_arr = arr[0:len(arr)//2]
+    right_arr = arr[len(arr)//2:len(arr)]
+    #recursion
+    mergeSort(left_arr)
+    mergeSort(right_arr)
+    #merge
+    i = 0 #left most
+    j = 0 #right most
+    k = 0 #merge array index
+    while i <len(left_arr) and j < len(right_arr): #while both arrays indices are not already looked at
+      if left_arr[i] < right_arr[j]:
+        arr[k] = left_arr[i] #set merge index value to left array value 
+        i += 1 
+      else: #if equal to or greater than right
+        arr[k] = right_arr[j]
+        j += 1
+      k += 1
 
+    while i < len(left_arr): #if the right array is done but the left arr hasn't fully been looked at yet. 
+      arr[k] = left_arr[i]
+      i += 1 
+      k += 1
+    while j < len(right_arr):
+      arr[k] = right_arr[j]
+      j += 1 
+      k += 1 
+ #test case
+arr = [1,3,5,64,3,2,4,4,3,4,5,5,8,6]
+mergeSort(arr)
+print(arr)
+
+#Runtime for regular Merge Sort
+import random
+import time
+def randomNumberList(n): #create a random list
+  rand_list=[]
+  for i in range(n):
+    rand_list.append(random.randint(0,1001)) #numbers between 0-1000
+  print("Unsorted:")
+  print(rand_list)
+  starttime = time.time()
+  mergeSort(rand_list)
+  print("Sorted")
+  print(rand_list)
+  endtime = time.time()
+  totaltime = endtime - starttime
+  print("The total time in seconds for ")
+  print(n)
+  print("is")
+  print(totaltime)
+randomNumberList(100) #n=100
+randomNumberList(1000) #n=1000
+randomNumberList(10000) #n=10000
+randomNumberList(25000) #n=25000
+randomNumberList(50000) #n=50000
+
+#graph for merge sort  
+
+# importing the required module
+import matplotlib.pyplot as plt
+
+# x axis values
+x = [100,1000,10000,25000,50000]
+# corresponding y axis values
+y = [0.001966238021850586, 0.004695415496826172, 0.04029560089111328, 0.09277176856994629, 0.2706151008605957]
+
+# plotting the points
+plt.plot(x, y)
+
+# naming the x axis
+plt.xlabel('Number of elements in Array')
+# naming the y axis
+plt.ylabel('Time in seconds')
+
+# giving a title to my graph
+plt.title('Regular Merge Sort')
+
+# function to show the plot
+plt.show()
+
+#Reverse Merge Sort
+def ReversemergeSort(arr): 
+  if len(arr) > 1: 
+    left_arr = arr[0:len(arr)//2]
+    right_arr = arr[len(arr)//2:len(arr)]
+    #recursion
+    mergeSort(left_arr)
+    mergeSort(right_arr)
+    #merge
+    i = 0 #left most
+    j = 0 #right most
+    k = 0 #merge array index
+    while i <len(left_arr) and j < len(right_arr): #while both arrays indices are not already looked at
+      if left_arr[i] > right_arr[j]: #do greater than for reverse merge sort
+        arr[k] = left_arr[i] #set merge index value to left array value 
+        i += 1 
+      else: #if equal to or greater than right
+        arr[k] = right_arr[j]
+        j += 1
+      k += 1
+
+    while i < len(left_arr): #if the right array is done but the left arr hasn't fully been looked at yet. 
+      arr[k] = left_arr[i]
+      i += 1 
+      k += 1
+    while j < len(right_arr):
+      arr[k] = right_arr[j]
+      j += 1 
+      k += 1 
+      
+#Runtime for reverse Merge Sort
+import random
+import time
+def randomNumberList(n): #create a random list
+  rand_list=[]
+  for i in range(n):
+    rand_list.append(random.randint(0,1001)) #numbers between 0-1000
+  print("Unsorted:")
+  print(rand_list)
+  starttime = time.time()
+  ReversemergeSort(rand_list)
+  print("Sorted")
+  print(rand_list)
+  endtime = time.time()
+  totaltime = endtime - starttime
+  print("The total time in seconds for ")
+  print(n)
+  print("is")
+  print(totaltime)
+randomNumberList(100) #n=100
+randomNumberList(1000) #n=1000
+randomNumberList(10000) #n=10000
+randomNumberList(25000) #n=25000
+randomNumberList(35000) #n=35000
+randomNumberList(45000) #n=25000
+randomNumberList(50000) #n=50000
+
+#graph for reverse merge sort  
+
+# importing the required module
+import matplotlib.pyplot as plt
+
+# x axis values
+x = [100,1000,10000,25000,35000, 45000, 50000]
+# corresponding y axis values
+y = [0.0009865760803222656, 0.006527900695800781, 0.03807806968688965, 0.10205554962158203, 0.20088529586791992, 0.2325303554534912, 0.35698795318603516]
+
+# plotting the points
+plt.plot(x, y)
+
+# naming the x axis
+plt.xlabel('Number of elements in Array')
+# naming the y axis
+plt.ylabel('Time in seconds')
+
+# giving a title to my graph
+plt.title('Reverse Merge Sort')
+
+# function to show the plot
+plt.show()
+
+#Alphanumeric Merge Sort
+
+def AlphaNumericmergeSort(arr): 
+  if len(arr) > 1: 
+    left_arr = arr[0:len(arr)//2]
+    right_arr = arr[len(arr)//2:len(arr)]
+    #recursion
+    mergeSort(left_arr)
+    mergeSort(right_arr)
+    #merge
+    i = 0 #left most
+    j = 0 #right most
+    k = 0 #merge array index
+    while i <len(left_arr) and j < len(right_arr): #while both arrays indices are not already looked at
+      if str(left_arr[i]) < str(right_arr[j]): #change to string class
+        arr[k] = left_arr[i] #set merge index value to left array value 
+        i += 1 
+      else: #if equal to or greater than right
+        arr[k] = right_arr[j]
+        j += 1
+      k += 1
+
+    while i < len(left_arr): #if the right array is done but the left arr hasn't fully been looked at yet. 
+      arr[k] = left_arr[i]
+      i += 1 
+      k += 1
+    while j < len(right_arr):
+      arr[k] = right_arr[j]
+      j += 1 
+      k += 1 
+import random
+import string 
+import time
+def generateRandStringArray(n):
+  array = []
+  for i in range(0,n):
+    randstring = (random.choices(string.printable, k = random.randint(1,10))) #generating random strings length between 1 to 9 
+    res = ''
+    for ele in randstring:
+    # Concatenating random elements
+      res += random.choice(ele)
+    array.insert(i,res) #insert into array
+  print("Unsorted: ")
+  print(array)
+  #insertionAlphaNumeric(array) #insertion sort
+  startTime = time.time()
+  AlphaNumericmergeSort(array) #calling to test here
+  endTime = time.time()
+  totalTime = endTime-startTime
+  print("When n equals")
+  print(n)
+  print("it took approximately")
+  print(totalTime)
+  print("in seconds")
+
+generateRandStringArray(100) #testing 100
+
+generateRandStringArray(1000) #calling to test 1000 here
+
+generateRandStringArray(10000) #calling to test 10000 here
+
+generateRandStringArray(15000)
+
+generateRandStringArray(25000) #calling to test 25000 here
+
+generateRandStringArray(35000)
+
+generateRandStringArray(45000)
+
+generateRandStringArray(50000)
+
+#graph for alphanumeric merge sort  
+
+# importing the required module
+import matplotlib.pyplot as plt
+
+# x axis values
+x = [100,1000,10000,15000, 25000,35000, 45000, 50000]
+# corresponding y axis values
+y = [0.0003311634063720703, 0.003058195114135742, 0.038448333740234375, 0.09008526802062988, 0.15652012825012207, 0.2315833568572998, 0.19575023651123047, 0.3014953136444092]
+
+# plotting the points
+plt.plot(x, y)
+
+# naming the x axis
+plt.xlabel('Number of elements in Array')
+# naming the y axis
+plt.ylabel('Time in seconds')
+
+# giving a title to my graph
+plt.title('Alphanumeric Merge Sort')
+
+# function to show the plot
+plt.show()
